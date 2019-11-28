@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public class Event : IEvent {
     private EventType _type;
     private Dictionary<string, object> _args;
-    Event() {
+    public Event() {
         _args = new Dictionary<string, object>();
     }
     public void addArg(string name, object val) {
@@ -29,6 +29,11 @@ public class Event : IEvent {
 
     public Dictionary<string, object> getArgs() {
         return _args;
+    }
+
+    public void destroy() {
+        _args.Clear();
+        _args = null;
     }
 
 }

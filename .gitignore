@@ -4,3 +4,4 @@ Library/PackageCache/
 *.log
 *.meta
 *.cache
+Library/ShaderCache/

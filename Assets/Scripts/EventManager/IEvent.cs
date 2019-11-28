@@ -7,4 +7,5 @@ public interface IEvent {
     EventType getType();
     object getArg(string name);
     Dictionary<string, object> getArgs();
+    void destroy();
 }

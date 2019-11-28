@@ -6,4 +6,5 @@ public interface IEventHandler {
     bool removeHandler(Handler handler);
     void broadcast(IEvent evt);
     void clear();
+    void destroy();
 }
