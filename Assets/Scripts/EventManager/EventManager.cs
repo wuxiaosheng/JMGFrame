@@ -47,8 +47,29 @@ public class EventManager : IEventManager
         evt.addArg(argKey, argVal);
         return evt;
     }
+    public Event createEvent(EventType type) {
+        Event evt = new Event();
+        evt.setType(type);
+        return evt;
+    }
+    public void trigger(EventType type, string argKey, object argVal) {
+        Event evt = createEvent(type, argKey, argVal);
+        trigger(evt);
+    }
+    public void trigger(EventType type) {
+        Event evt = createEvent(type);
+        trigger(evt);
+    }
     public void trigger(IEvent evt) {
         _queue.Enqueue(evt);
+    }
+    public void broadcast(EventType type, string argKey, object argVal) {
+        Event evt = createEvent(type, argKey, argVal);
+        broadcast(evt);
+    }
+    public void broadcast(EventType type) {
+        Event evt = createEvent(type);
+        broadcast(evt);
     }
     public void broadcast(IEvent evt) {
         if (evt == null) { return; }
